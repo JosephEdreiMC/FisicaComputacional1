@@ -1,0 +1,1 @@
+This folder contains basic code that was used to get acquainted with C++.
