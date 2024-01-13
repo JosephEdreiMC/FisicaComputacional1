@@ -1,0 +1,286 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+%Ahora comienza referenciasy estilo de la página
+%Las paqueterias para cosas de estilo tienen el comienzo\fancy (\fancyhead, \fancyfoot)
+\usepackage[dvipsnames]{xcolor}
+\usepackage{color}
+\usepackage{cite}
+\usepackage{sectsty}
+\subsectionfont{\color{Green}}  % sets colour of chapters
+\sectionfont{\color{Blue}} 
+\subsubsectionfont{\color{Green}}
+\usepackage{url}
+\usepackage{bm}
+\newcommand{\uvec}[1]{\boldsymbol{\hat{\textbf{#1}}}}
+
+\usepackage{ragged2e}
+\setlength{\parindent}{0.7cm}
+
+\title{Tarea 6~\\
+~\\
+F\'isica Computacional 1~\\
+~\\
+~\\
+\textbf{Tema: Vectores y Matrices en \LaTeX}}
+\author{Joseph Edrei Moreno Cruz} 
+\date{October 4, 2017}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{F\'isica Computacional 1}
+\fancyhead[RE,LO]{Tarea 6}
+\fancyfoot[CE,CO]{P\'agina \thepage}
+%\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\headrulewidth}{2pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\begin{document}
+\thispagestyle{empty}
+
+\maketitle
+\thispagestyle{empty}
+\newpage
+\clearpage
+\setcounter{page}{1}
+~\\
+\section{Matrices}   
+\qquad Una matriz de orden (m$\times$n) es un conjunto de $m \times{}n$ n\'umeros ordenados en una tabla:
+\[A = \begin{pmatrix}
+a_{11} & a_{12} & \ldots & a_{1n}\\
+a_{21} & a_{22} & \ldots & a_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{m1} & a_{m2} & \ldots & a_{mn}
+\end{pmatrix}\] \par
+La matriz es de orden (m $\times$ n), pues tiene $m$ filas y $n$ columnas. Si $m = n$, entonces nuestra matriz es \underline{cuadrada}. \par
+\smallskip
+Las matrices suelen expresarse en forma abreviada:
+\begin{displaymath}
+A = {({a}_{ij})}_{
+{\substack{\text{1$\leq$i$\leq$n ,} \\ \text{1$\leq$j$\leq$m}}}
+}
+\end{displaymath} \par
+es decir, en la expresi\'on anterior, de ${a}_{ij}$ vemos que el sub\'indice $i$ corresponde a la la $i$-\'esima, cuyo recorrido va desde 1 hasta $m$; y el segundo sub\'indice, $j$, corresponde a la columna $j$-\'esima, que va desde 1 hasta $n$. 
+
+\subsection{Operaciones con Matrices}
+\qquad Estas son las operaciones que podemos realizar con las matrices.
+\begin{flushleft}
+\textbf{\textcolor{YellowOrange}{Adici\'on}}
+\end{flushleft}\par
+Sean $A$ y $B$ son dos matrices del mismo orden, entonces la matriz suma $S = A + B$ es:
+\begin{equation*}
+ \left.\begin{aligned}
+        A&=({a}_{ij})\\
+        B&=({b}_{ij})
+       \end{aligned}
+ \right\}
+ ({s}_{ij}) = ({a}_{ij}) + ({a}_{ij})
+\end{equation*}
+\begin{flushleft}
+\textbf{\textcolor{YellowOrange}{Producto por un escalar}}
+\end{flushleft}\par
+Sea $A$ una matriz y $k$ un escalar, entonces la matriz $B = kA$ es:
+\begin{equation*}
+ \left.\begin{aligned}
+        A&=({a}_{ij})\\
+        k &\in R
+       \end{aligned}
+ \right\}
+ ({b}_{ij}) = (k\cdot{}{a}_{ij})
+\end{equation*}
+\begin{flushleft}
+\textbf{\textcolor{YellowOrange}{Producto de matrices}}
+\end{flushleft}\par
+Sea $A$ una matriz de orden (m$\times$ n), y $B$ una matriz de orden (n$\times$r), entonces la matriz producto, es una matriz $P=A\cdot B$ de orden (m$\times$r):
+\begin{equation*}
+ \left.\begin{aligned}
+        A&=({a}_{ij})\\
+        B&=({b}_{ij})
+       \end{aligned}
+ \right\}
+ {p}_{ij}={a}_{i1}{b}_{1j}+{a}_{i2}{b}_{2j}+\cdots{}+{a}_{in}{b}_{nj}=\displaystyle\sum_{k=1}^{n} {a}_{ik}{b}_{kj}
+\end{equation*}
+
+\subsection{Definici\'on de determinante de una matriz cuadrada}
+\qquad Supongamos una matriz cuadrada $A$ de orden $n$:
+\[A = \begin{pmatrix}
+a_{11} & a_{12} & \ldots & a_{1n}\\
+a_{21} & a_{22} & \ldots & a_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{m1} & a_{m2} & \ldots & a_{mn}
+\end{pmatrix}\] \par
+Llamamos determinante de $A$, $detA$, al n\'umero obtenido al sumar todos los diferentes
+productos de $n$ elementos que se pueden formar con los elementos de dicha matriz, de modo que en cada producto figure un elemento de cada distinta fila y uno de cada distinta columna, a cada producto se le asigna el signo $(+)$ si la permutaci\'on de los sub\'indices de filas es del mismo orden que la permutaci\'on de los sub\'indices de columnas, y signo $(+)$ si son de distinto orden.
+\begin{flushleft}
+\textbf{\textcolor{YellowOrange}{Determinante de una matriz de $2\times{}2$}}
+\end{flushleft}\par
+Para una matriz de orden 2, su determinante se calcula:
+$$detA=\begin{vmatrix}
+a_{12}&a_{12}\\
+a_{21}&a_{22}
+\end{vmatrix}
+={a}_{11}{a}_{22}+({a}_{12}{a}_{21})$$ \par
+Cada producto tiene que estar formado por un elemento de la \textit{primera fila} y un elemento de la \textit{segunda fila}, pero al mismo tiempo tienen que ser un elemento de la \textit{primera columna} y un elemento de la \textit{segunda}. En este caso solo hay dos emparejamientos posibles, los que est\'an arriba indicados. En cuanto al signo de cada producto, como el primer producto representa una permutaci\'on par su signo es positivo, en cambio en el segundo es impar y es negativo.
+\newpage
+\begin{flushleft}
+\textbf{\textcolor{YellowOrange}{Determinante de una matriz de $3\times{}3$}}
+\end{flushleft}\par
+Sea A una matriz de orden 3
+$$detA=\begin{bmatrix}
+a_{11}&a_{12}&a_{13}\\
+a_{21}&a_{22}&a_{23}\\
+a_{31}&a_{32}&a_{33}
+\end{bmatrix}$$
+para expresar $|A|$ hay que considerar todas las permutaciones de (123), son seis:
+$$\begin{aligned}
+{a}_{11}{a}_{22}{a}_{33} \; \to \; &+ \; (\text{par})\\
+{a}_{11}{a}_{23}{a}_{32} \; \to \; &- \; (\text{impar})\\
+{a}_{12}{a}_{21}{a}_{33} \; \to \; &- \; (\text{impar})\\
+{a}_{12}{a}_{23}{a}_{31} \; \to \; &+ \; (\text{par})\\
+{a}_{13}{a}_{21}{a}_{32} \; \to \; &+ \; (\text{par})\\
+{a}_{13}{a}_{22}{a}_{31} \; \to \; &- \; (\text{impar})\\
+\end{aligned}$$ \par
+por lo tanto, el determinante ser\'a:
+$$|A|=\begin{vmatrix}
+a_{11}&a_{12}&a_{13}\\
+a_{21}&a_{22}&a_{23}\\
+a_{31}&a_{32}&a_{33}
+\end{vmatrix}=a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}$$
+\subsection{Matriz inversa de una matriz cuadrada}
+\begin{flushleft}
+\textbf{\textcolor{YellowOrange}{Definici\'on de determinante de matriz inversa de una matriz cuadrada}}
+\end{flushleft}\par
+\qquad Supongamos una matriz cuadrada $A$ de orden $n$:
+\[A = \begin{pmatrix}
+a_{11} & a_{12} & \ldots & a_{1n}\\
+a_{21} & a_{22} & \ldots & a_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{m1} & a_{m2} & \ldots & a_{mn}
+\end{pmatrix}\] \par
+Decimos que la matriz $A$ es \textit{invertible} si existe una matriz cuadrada de orden $n$ tal que $A{A}^{-1}=I$ y ${A}^{-1}A=I$ donde $I$ es la matriz identidad de orden $n$ esto es, sus componentes ${a}_{ij}=0$ siempre que $i\neq j$ y $a_{ij}=1$ siempre que $i=j$.
+Un cr\'iterio \'util para saber que una matriz es invertible nos lo da el siguiente teorema:
+\newtheorem{theorem}{Teorema}
+\begin{theorem}
+Sea $A\in M_{n\times n}(K)$, $A$ es invertible si y solo si $detA\neq 0$
+\end{theorem}
+\begin{flushleft}
+\textbf{\textcolor{YellowOrange}{Matriz inversa de una matriz de $3\times{}3$}}
+\end{flushleft}\par
+Sea $A$ una matriz de $3 \times 3$  y $I$ la matriz identidad de orden $3$. \par
+Ahora hacemos el arreglo siguiente que llamaremos \textit{Matriz aumentada} y la simbolizaremos con $A|I$.
+\[
+\left[
+\begin{array}{ccc|ccc}
+a_{11} & a_{12} & a_{13} & 1 & 1 & 0 \\
+a_{21} & a_{22} & a_{32} & 0 & 1 & 0 \\
+a_{31} & a_{32} & a_{33} & 0 & 0 & 1 \\
+\end{array}
+\right]
+\]
+Llamaremos ahora a las \textit{operaciones fundamentales} como aquellas operaciones podemos realizar sobre una matriz, o matriz aumentada obteniendo matrices semejantes, dichas operaciones son las siguientes:
+\begin{enumerate}
+\item Intercambiar filas
+\item Multiplicar filas por escalares
+\item Intercambiar una de las filas por la suma de dicha fila mas alguna otra fila de la matriz.
+\end{enumerate}  \par
+Realizamos operaciones fundamentales a la matriz $A|I$ hasta obtener
+\[
+\left[
+\begin{array}{ccc|ccc}
+1 & 0 & 0 & b_{11} & b_{12} & b_{13} \\
+0 & 1 & 0 & b_{21} & b_{22} & b_{32} \\
+0 & 0 & 1 & b_{31} & b_{32} & b_{33} \\
+\end{array}
+\right]
+\]
+La matriz de la derecha ser\'a la matriz inversa de la matriz $A$, i.e., $A^{-1}$
+\newpage
+\section{Vectores}
+\qquad Un espacio vectorial $V$ sobre un campo $K$ consiste en un conjunto en el que est\'an definidas dos operaciones, tal que para cualquier par de elementos $x$ y $y$ exista un elemento \'unico $x+y$ en $V$, y para cada elemento $a$ en $K$ y cada elemento $x$ en $V$ exista un elemento \'unico $ax$ en $V$, de manera que se cumplan las siguientes condiciones:
+\begin{enumerate}
+\item Para toda $x,y\in V$, $x+y=y+x$
+\item Para toda $x,y,z \in V$, $(x+y)+z=x+(y+z)$
+\item Existe un elemento en $V$ llamado $0$ tal que $x+0=x$ para toda $x\in V$
+\item Para cada elemento $x\in V$, existe un elemento $y\in V$ tal que $x+y=0$
+\item Para cada $x\in V$, $1x=x$
+\item Para cada $a,b\in K$ y para cada $x\in V$: $(ab)x=a(bx)$
+\item Para cada $a\in K$ y para cada $x,y\in V$: $a(x+y)=ax+ay$
+\item Para cada $a,b\in K$ y para cada $x\in V$: $(a+b)x=ax+bx$
+\end{enumerate}
+A los elementos de $V$ se les llama \textbf{vectores}.
+Esta definici\'on de vector no es breve pero es precisa \ldots
+\subsection{Operaciones con vectores}
+\qquad C\'omo sabemos por la definici\'on de espacio vectorial los elementos de $V$ pueden sumarse entre ellos y multiplicarse a la izquierda por escalares, pero tambi\'en podemos definir m\'as operaciones entre vectores, en ciertos espacios vectoriales.
+\begin{flushleft}
+\textbf{\textcolor{YellowOrange}{Suma y diferencia de vectores}}
+\end{flushleft}
+\qquad Hemos definido a las suma de vectores como una operaci\'on cerrada en $V$ con alguna funci\'on que nos manda parejas de elementos en $V$ a un elemento en $V$. Sea $V={\mathbb{R}}^{3}$, ahora definimos la suma de la siguiente manera:
+$\text{Sea} \; (a_{1}, a_{2}, a_{3}), (b_{1}, b_{2}, b_{3})\in {\mathbb{R}}^{3}, \text{definimos la suma usual en} \; {\mathbb{R}}^{3} \text{como}$ 
+$$(a_{1}, a_{2}, a_{3})+(b_{1}, b_{2}, b_{3})=(a_{1}+b_{1}, a_{2}+b_{2}, a_{3}+b_{3})$$ \\
+Y a la diferencia como sigue:
+\\ 
+$\text{Sea} \; (a_{1}, a_{2}, a_{3}), (b_{1}, b_{2}, b_{3})\in {\mathbb{R}}^{3}, \text{definimos la suma usual en} \; {\mathbb{R}}^{3} \text{como}$
+$$(a_{1}, a_{2}, a_{3})-(b_{1}, b_{2}, b_{3})=(a_{1}-b_{1}, a_{2}-b_{2}, a_{3}-b_{3})$$ 
+\newpage
+\begin{flushleft}
+\textbf{\textcolor{YellowOrange}{Producto escalar}}
+\end{flushleft}
+\qquad Podemos definir una nueva operaci\'on de vectores en ${\mathbb{R}}^{3}$ de la siguiente manera:
+\\ 
+$\text{Sea} \; (a_{1}, a_{2}, a_{3}), (b_{1}, b_{2}, b_{3})\in {\mathbb{R}}^{3}, \text{definimos al producto escalar en} \; {\mathbb{R}}^{3} \text{como}$
+$$(a_{1}, a_{2}, a_{3})\cdot(b_{1}, b_{2}, b_{3})=(a_{1}b_{1}, a_{2}b_{2}, a_{3}b_{3})$$
+\begin{flushleft}
+\textbf{\textcolor{YellowOrange}{Producto vectorial}}
+\end{flushleft}
+Definiremos una nueva operaci\'on de vectores en ${\mathbb{R}}^{3}$ de la siguiente manera:
+$\text{Sea} \; (a_{1}, a_{2}, a_{3}), (b_{1}, b_{2}, b_{3})\in {\mathbb{R}}^{3}, \text{definimos al producto vectorial en} \; {\mathbb{R}}^{3} \text{como}$
+$$\mathbf{a}\times \mathbf{b}=\begin{vmatrix}
+\uvec{\i}&\uvec{\j}&\uvec{k}\\
+a_{1}&a_{2}&a_{3}\\
+a_{1}&b_{2}&b_{3}
+\end{vmatrix}$$
+\begin{flushleft}
+\textbf{\textbf{Producto vectorial utilizando el tensor de Levi-Civita}} \par
+El s\'imbolo Levi-Civita ${\epsilon}_{ijk}$ es un tensor de rango tres y est\'a definido por:\begin{equation*}
+ \left.\begin{aligned}
+        0&\; \text{si cualquier dos subinidices son el mismo}\\
+        1&\; \text{si} \; i,j,k \; \text{son una permutaci\'on par de 1,2 o 3} \\
+        -1&\; \text{si} \; i,j,k \; \text{son una permutaci\'on impar de 1,2 o 3} 
+       \end{aligned}
+ \right\}
+ {\epsilon}_{ijk}
+\end{equation*}
+As\'i tenemos que:
+$$det\begin{vmatrix}
+a_{11}&a_{12}&a_{13}\\
+a_{21}&a_{22}&a_{23}\\
+a_{31}&b_{32}&b_{33}
+\end{vmatrix}={\epsilon}_{ijk}a_{1i}a_{2j}a_{3k}$$
+Por lo que podemos representar a $\mathbf{a}\times \mathbf{b}$ como:
+$$\mathbf{a}\times \mathbf{b}=\begin{vmatrix}
+\uvec{\i}&\uvec{\j}&\uvec{k}\\
+a_{1}&a_{2}&a_{3}\\
+a_{1}&b_{2}&b_{3}
+\end{vmatrix}={\epsilon}_{ijk}\uvec{\i}a_{j}b_{k}$$
+\end{flushleft}
+
+\newpage
+\section{Conclusi\'on}
+\qquad Gran parte del trabajo es buscar los comandos necesarios en la Red, sin embargo un detalle que debes revisar todo el tiempo es que los espacios en el texto sean siempre los correctos, ad\'emas no hay que olvidar cerrar todos los brackets, ocurrieron errores inexplicables a la hora de compilar este documento en m\'ultiples ocasiones, a\'un no entiendo el por que, pero la \'unica manera que logre solucionarlos fue copiando la parte que no compilaba en el bloc de notas y volverlo a pegar, eso resolv\'ia el problema la mayoria de las ocasiones.
+\section*{Referencias}
+\begin{thebibliography}{X}
+
+\bibitem{Fried} \textsc{Richard L. Burden}, \textsc{J. Douglas Faires},
+\textit{An\'alisis Num\'erico}, \textit{Grupo Editorial Iberoam\'erica}(1985).
+
+\bibitem{Rich} \textsc{Stephen H. Friedberg}, \textsc{Arnold J. Insel},
+\textsc{Lawrence E. Spence},
+\textit{\'Algebra lineal}, \textit{Publicaciones Cultura, S.A}(1982).
+
+\bibitem{Patr} \textsc{Patrick Guio},
+\textit{Levi-Civita symbol and cross product vector/tensor}, \url{http://www.ucl.ac.uk/~ucappgu/seminars/levi-civita.pdf}
+\end{thebibliography}
+
+
+
+\end{document}

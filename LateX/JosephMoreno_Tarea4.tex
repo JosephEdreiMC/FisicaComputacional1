@@ -1,0 +1,50 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{ragged2e}
+%\setlength{\parindent}{0.1cm}
+\setlength{\parskip}{0.1cm}
+\setlength{\baselineskip}{1cm} %Con esto modificamos la distancia entre las lineas del texto
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue}
+\usepackage[usenames, dvipsnames]{xcolor}
+\definecolor{color1}{RGB}{219, 48, 122}
+
+\title{Homework 4}
+\author{Joseph Edrei Moreno Cruz \\ Física Computacional 1} 
+\date{September 26, 2017}
+
+\pagestyle{empty}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\textcolor{color1}{A Basic LaTeX Preamble}
+\end{center} \par
+The preamble is the place where one lays a document’s fundaments. It is used to include additional packages, set options, define new macros (commands), add PDF information and more. Even though one can define commands and set certain options within the document, it is preferred to set options globally. Otherwise we start smearing these definitions over the entire document, which makes finding things harder. This makes setting up the preamble a vital part of every document that is often overlooked.  \par
+In addition to adding more structure to the document, sometimes unexpected behaviour occurs when things are not done in the correct order. Writing a preamble is not very hard for simple documents, but for larger documents (i.e. package heavy documents), complications can occur.
+\\
+\\
+\begin{center}
+\textcolor{OliveGreen}{Some side notes}
+\end{center} \par
+
+Some packages need to be loaded in a specific order. A common example is the following set: \colorbox{gray}{HYPERREF},  \colorbox{gray}{CLEVEREF}, \colorbox{gray}{AUTONUM}. These need to be loaded in that exact order, otherwise very ugly things can occur. We also need to set how references are created and stored before we can load these packages (hence the \textbackslash{}numberwithin commands need to be executed before the above set can be loaded). \par
+One package that deserves a special mention is nag. nag is only used to force the usage of newer commands and to output some warnings if we do not add a caption and label to a float. It is essential in contemporary texts to reference a float, otherwise it adds no meaning to the text and thus is useless. \par
+If we are compiling a larger document, we may want to add the draft option to the \textbackslash{}documentclass command. This speeds up compilation by not including external sources (such as images). And is very useful if we are looking for syntax errors or just compiling an unfinished document.
+\\
+\\
+\begin{center}
+\textcolor{yellow}{Conclusion}
+\end{center} \par
+Writing a LaTeX preamble is not the easiest nor the hardest thing about LaTeX. Writing a good preamble for most documents takes some time. However, it is well worth it since we can avoid common mistakes and pitfalls. \\
+\\
+\\
+\textbf{General information} \par
+The information of the last two pages was taken from \url{ https://olivierpieters.be/blog/2016/08/10/latex-preamble}. If you want to know a little bit more about how to write your preamble, please visit that page.\\
+\\
+\textbf{Solución del punto 5 de la tarea} \par
+Me parece que el problema yace en que al colocar el enlace el color de letra no es azul. Esto se puede arreglar fácilmente en el preámbulo con el comando \textit{\textbackslash hypersetup}, luego entre llaves (en el espacio del package) empleamos \textit{colorlinks=true}{ }lo cual hará que las opciones que elijamos dentro de estas llaves sea el color de las letras del enlace, finalmente escribimos \textit{urlcolor=blue}{ }para que se le otorgue a los enlaces url el color azul obteniendo el resultado deseado del texto final.
+\end{document}
