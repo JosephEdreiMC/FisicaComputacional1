@@ -1,5 +1,5 @@
 //Joseph Edrei Moreno Cruz
-//29 de novimebre
+//29 de noviembre
 //Derivada de la función coseno con archivo tabla.
 #include <iostream>
 #include <string>
